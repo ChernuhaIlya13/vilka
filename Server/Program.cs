@@ -9,12 +9,15 @@ using AngleSharp.Dom;
 using PlayEvent;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Text.RegularExpressions;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Server
 {
     class Program
     {
-        public List<Vilk> Vilks;
+        public static List<Vilk> Vilks { get; set; } = new List<Vilk> { };
         public static async void JsonParser()
         {
             HttpClient httpClient = new HttpClient();
@@ -24,15 +27,18 @@ namespace Server
             var parser = new HtmlParser();
             var document = parser.ParseDocument(responseBody);
             var trs = document.QuerySelectorAll("tbody tr");
-            foreach(var tr in trs)
+            foreach (var tr in trs)
             {
-                var TimeOfLife = tr.QuerySelector("td:nth-child(1) div a")?.TextContent == null ? "отсутсвует": tr.QuerySelector("td:nth-child(1) div a").TextContent;
+                var TimeOfLife = tr.QuerySelector("td:nth-child(1) div a")?.TextContent == null ? "отсутсвует" : tr.QuerySelector("td:nth-child(1) div a").TextContent;
 
                 var Percent = tr.QuerySelector("td:nth-child(2) nobr")?.TextContent == null ? "отсутсвует" : tr.QuerySelector("td:nth-child(2) nobr").TextContent;
                 var BookmakerFirst = tr.QuerySelector("td:nth-child(3) div:nth-child(1)")?.TextContent == null ? "отсутсвует" : tr.QuerySelector("td:nth-child(3) div:nth-child(1)").TextContent;
                 var BookmakerSecond = tr.QuerySelector("td:nth-child(3) div:nth-child(2)")?.TextContent == null ? "отсутсвует" : tr.QuerySelector("td:nth-child(3) div:nth-child(2)").TextContent;
-                var BookmakerFirstEvent = tr.QuerySelector("td:nth-child(4) div")?.TextContent == null ? "отсутсвует" : tr.QuerySelector("td:nth-child(4) div").TextContent;
-                var BookmakerSecondEvent = tr.QuerySelector("td:nth-child(4) small")?.TextContent == null ? "отсутсвует" : tr.QuerySelector("td:nth-child(4) small").TextContent;
+                string PlayersFirstEvent = tr.QuerySelector("td:nth-child(4) div")?.TextContent == null ? "отсутсвует" : tr.QuerySelector("td:nth-child(4) div").TextContent;
+                var InfoAboutLeagueCountTimeFirstEvent = tr.QuerySelector("td:nth-child(4) small")?.TextContent == null ? "отсутсвует" : tr.QuerySelector("td:nth-child(4) small").TextContent;
+
+                var PlayersSecondEvent = tr.QuerySelector("td:nth-child(4) br + a + div")?.TextContent == null ? "отсутсвует" : tr.QuerySelector("td:nth-child(4) div").TextContent;
+                var InfoAboutLeagueCountTimeSecondEvent = tr.QuerySelector("td:nth-child(4) br + a + div + small")?.TextContent == null ? "отсутсвует" : tr.QuerySelector("td:nth-child(4) small").TextContent;
 
                 var FirstBookmakerRate = tr.QuerySelector("td:nth-child(5) nobr a:nth-child(2)")?.TextContent == null ? "отсутсвует" : tr.QuerySelector("td:nth-child(5) nobr a:nth-child(2)").TextContent;
                 var SecondBookmakerRate = tr.QuerySelector("td:nth-child(5)  br + nobr")?.TextContent == null ? "отсутсвует" : tr.QuerySelector("td:nth-child(5)  br + nobr").TextContent;
@@ -40,67 +46,122 @@ namespace Server
                 var FirstBookmakerCoefficient = tr.QuerySelector("td:nth-child(6)  br + nobr")?.TextContent == null ? "отсутсвует" : tr.QuerySelector("td:nth-child(6)  br + nobr").TextContent;
                 var SecondBookmakerCoefficient = tr.QuerySelector("td:nth-child(6) div:nth-child(2) br + nobr")?.TextContent == null ? "отсутсвует" : tr.QuerySelector("td:nth-child(6) div:nth-child(2) br + nobr").TextContent;
 
+                Regex regex = new Regex(@"\((.+)\)");
+                var MatchedInfo = regex.Matches(InfoAboutLeagueCountTimeSecondEvent);
+                Match infoAboutLeague = null;
+
+                if (MatchedInfo.Count != 0)
+                {
+                    infoAboutLeague = MatchedInfo[0];//Информация о Лиге
+                }
+
+                string firstPlayerFirstEvent = null;
+                string secondPlayerFirstEvent = null;
+                string firstPlayerSecondEvent = null;
+                string secondPlayerSecondEvent = null;
+
+                if (PlayersFirstEvent.Length > 0 && PlayersFirstEvent != "отсутсвует")
+                {
+                    //Первый игрок первого события
+                    firstPlayerFirstEvent = PlayersFirstEvent.Split("vs")[0];
+                    //Второй игрок второго события
+                    secondPlayerFirstEvent = PlayersFirstEvent.Split("vs")[1];
+                }
+                if (PlayersSecondEvent.Length > 0 && PlayersSecondEvent != "отсутсвует")
+                {
+                    //Первый игрок первого события
+                    firstPlayerSecondEvent = PlayersSecondEvent.Split("vs")[0];
+                    //Второй игрок второго события
+                    secondPlayerSecondEvent = PlayersSecondEvent.Split("vs")[1];
+                }
+
+
+
+                Vilk vilk = new Vilk(TimeOfLife, Percent, BookmakerFirst, new PlayEvt(firstPlayerFirstEvent, secondPlayerFirstEvent, new ScoreGame(), 0), BookmakerSecond, new PlayEvt(firstPlayerSecondEvent, secondPlayerSecondEvent, new ScoreGame(), 0), new string[] { FirstBookmakerRate, SecondBookmakerRate }, new string[] { FirstBookmakerCoefficient, SecondBookmakerCoefficient });
+
+
+                Vilks.Add(vilk);
+
+
                 Console.WriteLine("TimeOfLife(Время жизни вилки) " + TimeOfLife);
-                Console.WriteLine("Percent(Процент) " + Percent );
+
+                Console.WriteLine("Percent(Процент) " + Percent);
+
                 Console.WriteLine("BookmakerFirst(Первый букмекер)  " + BookmakerFirst);
-                Console.WriteLine("BookmakerSecond(Второй букмекер)  " + BookmakerSecond );
-                Console.WriteLine("BookmakerFirstEvent(Подробности события первого букмекера) " + BookmakerFirstEvent );
-                Console.WriteLine("BookmakerSecondEvent(Подробности события второго букмекера)  " + BookmakerSecondEvent );
-                Console.WriteLine("FirstBookmakerRate(Ставка у первого букмекера) " + FirstBookmakerRate);
-                Console.WriteLine("SecondBookmakerRate(Ставка у второго букмекера) " + SecondBookmakerRate);
-                Console.WriteLine("FirstBookmakerCoefficient(Коэффициент у первого букмекера) " + FirstBookmakerCoefficient );
-                Console.WriteLine("SecondBookmakerCoefficient(Коээфициент у второго букмекера) " + SecondBookmakerCoefficient );
+
+
+                Console.WriteLine("BookmakerSecond(Второй букмекер)  " + BookmakerSecond);
+
+                Console.WriteLine("PlayersFirstEvent(Игроки(команды) первого события) " + PlayersFirstEvent);
+
+                Console.WriteLine("InfoAboutLeagueCountTimeSecondEvent(Информация о лиге,счёте и прочее) первого события)  " + InfoAboutLeagueCountTimeFirstEvent);
+
+                Console.WriteLine("PlayersSecondEvent(Игроки(команды) первого события) " + PlayersSecondEvent);
+
+                Console.WriteLine("InfoAboutLeagueCountTimeSecondEvent(Информация о лиге,счёте и прочее) второго события)  " + InfoAboutLeagueCountTimeSecondEvent);
+
+                Console.WriteLine("PlayersFirstEvent(ставка первого букмекера) " + FirstBookmakerRate);
+
+                Console.WriteLine("SecondBookmakerRate(ставка первого букмекера)  " + SecondBookmakerRate);
+
+                Console.WriteLine("FirstBookmakerCoefficient(Коэффициент у первого букмекера) " + FirstBookmakerCoefficient);
+
+                Console.WriteLine("SecondBookmakerCoefficient(Коээфициент у второго букмекера) " + SecondBookmakerCoefficient);
                 Console.WriteLine("*******NEXT ****************************************");
             }
+
+            Console.WriteLine("Выводим список вилок");
+            Console.WriteLine("Количество вилок " + Vilks.Count);
         }
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             JsonParser();
-            while (true) {
-                Thread.Sleep(10000);
+            /*while (true) {
+                //Thread.Sleep(30000);
                 Console.Clear();
                 JsonParser();
-            }
-            
+            }*/
+            Thread.Sleep(10000);
             #region Server
-            // Устанавливаем для сокета локальную конечную точку
             IPHostEntry ipHost = Dns.GetHostEntry("localhost");
             IPAddress ipAddr = ipHost.AddressList[0];
             IPEndPoint ipEndPoint = new IPEndPoint(ipAddr, 11000);
 
-            // Создаем сокет Tcp/Ip
             Socket sListener = new Socket(ipAddr.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
 
-            // Назначаем сокет локальной конечной точке и слушаем входящие сокеты
             try
             {
                 sListener.Bind(ipEndPoint);
                 sListener.Listen(10);
 
-                // Начинаем слушать соединения
                 while (true)
                 {
                     Console.WriteLine("Ожидаем соединение через порт {0}", ipEndPoint);
 
-                    // Программа приостанавливается, ожидая входящее соединение
                     Socket handler = sListener.Accept();
                     string data = null;
 
-                    // Мы дождались клиента, пытающегося с нами соединиться
 
                     byte[] bytes = new byte[1024];
                     int bytesRec = handler.Receive(bytes);
 
                     data += Encoding.UTF8.GetString(bytes, 0, bytesRec);
 
-                    // Показываем данные на консоли
                     Console.Write("Полученный текст: " + data + "\n\n");
 
-                    // Отправляем ответ клиенту\
                     string reply = "Спасибо за запрос в " + data.Length.ToString()
                             + " символов";
                     byte[] msg = Encoding.UTF8.GetBytes(reply);
-                    handler.Send(msg);
+                    //Получаем  вилки клиенту
+                    BinaryFormatter formatter = new BinaryFormatter();
+                    using (MemoryStream stream = new MemoryStream())
+                    {
+                        foreach (var vilk in Vilks)
+                            formatter.Serialize(stream, vilk);
+                        handler.Send(stream.GetBuffer());
+                    }
+
+                    //handler.Send(msg);
 
                     if (data.IndexOf("<TheEnd>") > -1)
                     {
@@ -122,6 +183,6 @@ namespace Server
             }
             #endregion
         }
-        
+
     }
 }

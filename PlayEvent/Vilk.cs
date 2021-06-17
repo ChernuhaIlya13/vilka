@@ -1,10 +1,15 @@
-﻿namespace PlayEvent
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+
+namespace PlayEvent
 {
+    [Serializable]
     public class Vilk
     {
-        public int TimeOfLife { get; set; }
+        [Key]
+        public string TimeOfLife { get; set; }
 
-        public double Percent { get; set; }
+        public string Percent { get; set; }
 
         public string BookmakerFirst { get; set; }
 
@@ -14,11 +19,11 @@
 
         public PlayEvt BookmakerSecondEvent { get; set; }
 
-        public string Rate { get; set; }
+        public string[] Rate { get; set; }
 
-        public double Coefficient { get; set; }
+        public string[] Coefficient { get; set; }
 
-        public Vilk(int TimeOfLife,double Percent,string BookmakerFirst,PlayEvt BookMakerFirstEvent,string BookmakerSecond,PlayEvt BookmakerSecondEvent,string Rate,double Coefficient)
+        public Vilk(string TimeOfLife, string Percent, string BookmakerFirst, PlayEvt BookMakerFirstEvent, string BookmakerSecond, PlayEvt BookmakerSecondEvent, string[] Rate, string[] Coefficient)
         {
             this.TimeOfLife = TimeOfLife;
             this.Percent = Percent;

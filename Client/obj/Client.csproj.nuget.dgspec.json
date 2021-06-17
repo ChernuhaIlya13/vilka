@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gh\\Desktop\\clientServ\\Client\\Client.csproj": {}
+    "C:\\Users\\gh\\Desktop\\ghDeskVilka\\vilka\\Client\\Client.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gh\\Desktop\\clientServ\\Client\\Client.csproj": {
+    "C:\\Users\\gh\\Desktop\\ghDeskVilka\\vilka\\Client\\Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gh\\Desktop\\clientServ\\Client\\Client.csproj",
+        "projectUniqueName": "C:\\Users\\gh\\Desktop\\ghDeskVilka\\vilka\\Client\\Client.csproj",
         "projectName": "Client",
-        "projectPath": "C:\\Users\\gh\\Desktop\\clientServ\\Client\\Client.csproj",
+        "projectPath": "C:\\Users\\gh\\Desktop\\ghDeskVilka\\vilka\\Client\\Client.csproj",
         "packagesPath": "C:\\Users\\gh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gh\\Desktop\\clientServ\\Client\\obj\\",
+        "outputPath": "C:\\Users\\gh\\Desktop\\ghDeskVilka\\vilka\\Client\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -31,7 +31,11 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\gh\\Desktop\\ghDeskVilka\\vilka\\PlayEvent\\PlayEvent.csproj": {
+                "projectPath": "C:\\Users\\gh\\Desktop\\ghDeskVilka\\vilka\\PlayEvent\\PlayEvent.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -60,6 +64,16 @@
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
+      }
+    },
+    "C:\\Users\\gh\\Desktop\\ghDeskVilka\\vilka\\PlayEvent\\PlayEvent.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\gh\\Desktop\\ghDeskVilka\\vilka\\PlayEvent\\PlayEvent.csproj",
+        "projectName": "PlayEvent",
+        "projectPath": "C:\\Users\\gh\\Desktop\\ghDeskVilka\\vilka\\PlayEvent\\PlayEvent.csproj"
+      },
+      "frameworks": {
+        "net472": {}
       }
     }
   }

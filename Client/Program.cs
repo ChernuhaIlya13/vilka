@@ -2,6 +2,10 @@
 using System.Text;
 using System.Net;
 using System.Net.Sockets;
+using System.IO;
+using System.Collections.Generic;
+using PlayEvent;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Client
 {
@@ -25,7 +29,8 @@ namespace Client
         static void SendMessageFromSocket(int port)
         {
             // Буфер для входящих данных
-            byte[] bytes = new byte[1024];
+            byte[] bytes = new byte[8192];
+
 
             // Соединяемся с удаленным устройством
 
@@ -49,9 +54,29 @@ namespace Client
             int bytesSent = sender.Send(msg);
 
             // Получаем ответ от сервера
-            int bytesRec = sender.Receive(bytes);
+            //int bytesRec = sender.Receive(bytes);
 
-            Console.WriteLine("\nОтвет от сервера: {0}\n\n", Encoding.UTF8.GetString(bytes, 0, bytesRec));
+            sender.Receive(bytes);
+            List<Vilk> vilks = new List<Vilk>();
+            try
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                using (MemoryStream stream = new MemoryStream(bytes))
+                {
+                    stream.Seek(0, SeekOrigin.Begin);
+                    while (stream.Length != stream.Position)
+                        vilks.Add((Vilk)formatter.Deserialize(stream));
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("exception " + ex.Message);
+            }
+
+
+            //Console.WriteLine("\nОтвет от сервера: {0}\n\n", Encoding.UTF8.GetString(bytes, 0, bytesRec));
+
+            Console.WriteLine("Количество вилок " + vilks.Count);
 
             // Используем рекурсию для неоднократного вызова SendMessageFromSocket()
             if (message.IndexOf("<TheEnd>") == -1)

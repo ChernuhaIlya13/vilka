@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gMCzsEG3Cw0QAjdphYnPgcm7bfqz/u2gc9dAxXC7xy7Wiil9+cJkTVzdPJ4OWE6G5KsFq+EDMhqGnqz5OlvO4g==",
+  "dgSpecHash": "Hh35ZWvxYfXmsb2029Qm1fozibqk4ShicBwNZlAVdtsdbGbp+E8SjUgEr3hGzoI99bnl1DeMcG036MefseKReQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\gh\\Desktop\\clientServ\\Server\\Server.csproj",
+  "projectFilePath": "C:\\Users\\gh\\Desktop\\ghDeskVilka\\vilka\\Server\\Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gh\\.nuget\\packages\\anglesharp\\0.16.0\\anglesharp.0.16.0.nupkg.sha512",
     "C:\\Users\\gh\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
