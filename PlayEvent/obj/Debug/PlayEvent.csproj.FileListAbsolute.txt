@@ -1,0 +1,6 @@
+C:\Users\gh\source\repos\ClientSetver\PlayEvent\bin\Debug\PlayEvent.dll
+C:\Users\gh\source\repos\ClientSetver\PlayEvent\bin\Debug\PlayEvent.pdb
+C:\Users\gh\source\repos\ClientSetver\PlayEvent\obj\Debug\PlayEvent.csproj.AssemblyReference.cache
+C:\Users\gh\source\repos\ClientSetver\PlayEvent\obj\Debug\PlayEvent.csproj.CoreCompileInputs.cache
+C:\Users\gh\source\repos\ClientSetver\PlayEvent\obj\Debug\PlayEvent.dll
+C:\Users\gh\source\repos\ClientSetver\PlayEvent\obj\Debug\PlayEvent.pdb
