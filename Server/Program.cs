@@ -12,6 +12,7 @@ using System.Threading;
 using System.Text.RegularExpressions;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using Microsoft.Data.SqlClient;
 
 namespace Server
 {
@@ -27,6 +28,7 @@ namespace Server
             var parser = new HtmlParser();
             var document = parser.ParseDocument(responseBody);
             var trs = document.QuerySelectorAll("tbody tr");
+            int VilkId = 1;
             foreach (var tr in trs)
             {
                 var TimeOfLife = tr.QuerySelector("td:nth-child(1) div a")?.TextContent == null ? "отсутсвует" : tr.QuerySelector("td:nth-child(1) div a").TextContent;
@@ -76,13 +78,12 @@ namespace Server
                 }
 
 
-
-                Vilk vilk = new Vilk(TimeOfLife, Percent, BookmakerFirst, new PlayEvt(firstPlayerFirstEvent, secondPlayerFirstEvent, new ScoreGame(), 0), BookmakerSecond, new PlayEvt(firstPlayerSecondEvent, secondPlayerSecondEvent, new ScoreGame(), 0), new string[] { FirstBookmakerRate, SecondBookmakerRate }, new string[] { FirstBookmakerCoefficient, SecondBookmakerCoefficient });
-
+                Vilk vilk = new Vilk(VilkId,TimeOfLife, Percent, BookmakerFirst, new PlayEvt(firstPlayerFirstEvent, secondPlayerFirstEvent, new ScoreGame(), 0), BookmakerSecond, new PlayEvt(firstPlayerSecondEvent, secondPlayerSecondEvent, new ScoreGame(), 0), new string[] { FirstBookmakerRate, SecondBookmakerRate }, new string[] { FirstBookmakerCoefficient, SecondBookmakerCoefficient });
+                VilkId++;
 
                 Vilks.Add(vilk);
 
-
+                
                 Console.WriteLine("TimeOfLife(Время жизни вилки) " + TimeOfLife);
 
                 Console.WriteLine("Percent(Процент) " + Percent);
@@ -113,9 +114,52 @@ namespace Server
             Console.WriteLine("Выводим список вилок");
             Console.WriteLine("Количество вилок " + Vilks.Count);
         }
-        public static void Main(string[] args)
+        public static async Task ConnectToDatabase()
         {
-            JsonParser();
+            string connectionString = @"Server=DESKTOP-49F59OC;Database=Betting;Trusted_Connection=True;";
+
+            // Создание подключения
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                await connection.OpenAsync();
+                SqlCommand command = new SqlCommand();
+                command.CommandText = "SELECT * FROM Vilks";
+                command.Connection = connection;
+                SqlDataReader reader = await command.ExecuteReaderAsync();
+                if (reader.HasRows)
+                {
+                    var coltimeOfLife = reader.GetName(1);
+                    var colPercent = reader.GetName(2);
+                    var colBookmakerFirst = reader.GetName(3);
+                    var colBookmakerFirstEvent = reader.GetName(4);
+                    var colBookmakerSecond = reader.GetName(5);
+                    var colBookmakerSecondEvent = reader.GetName(6);
+                    var colRate = reader.GetName(7);
+                    var colCoefficient = reader.GetName(8);
+
+                    Console.WriteLine($"{coltimeOfLife}\t {colPercent}\t {colBookmakerFirst}\t {colBookmakerFirstEvent}\t {colBookmakerSecond}\t {colBookmakerSecondEvent}\t {colRate}\t {colCoefficient}");
+
+                    while (await reader.ReadAsync()) // построчно считываем данные
+                    {
+                        var timeOfLife = reader.GetValue(1);
+                        var Percent = reader.GetValue(2);
+                        var BookmakerFirst = reader.GetValue(3);
+                        var BookmakerFirstEvent = reader.GetValue(4);
+                        var BookmakerSecond = reader.GetValue(5);
+                        var BookmakerSecondEvent = reader.GetValue(6);
+                        var Rate = reader.GetValue(7);
+                        var Coefficient = reader.GetValue(8);
+
+                        Console.WriteLine($"{timeOfLife}\t {Percent}\t {BookmakerFirst}\t {BookmakerFirstEvent}\t {BookmakerSecond}\t {BookmakerSecondEvent}\t {Rate}\t {Coefficient}\t");
+                    }
+                }
+            }
+        }
+        public static  void Main(string[] args)
+        {
+            //Подключается к базе данных и забирает выводит все вилки
+             ConnectToDatabase();
+            //JsonParser();
             /*while (true) {
                 //Thread.Sleep(30000);
                 Console.Clear();

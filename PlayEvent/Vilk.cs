@@ -7,6 +7,7 @@ namespace PlayEvent
     public class Vilk
     {
         [Key]
+        public int VilkId { get;set; }
         public string TimeOfLife { get; set; }
 
         public string Percent { get; set; }
@@ -23,8 +24,9 @@ namespace PlayEvent
 
         public string[] Coefficient { get; set; }
 
-        public Vilk(string TimeOfLife, string Percent, string BookmakerFirst, PlayEvt BookMakerFirstEvent, string BookmakerSecond, PlayEvt BookmakerSecondEvent, string[] Rate, string[] Coefficient)
+        public Vilk(int VilkId, string TimeOfLife, string Percent, string BookmakerFirst, PlayEvt BookMakerFirstEvent, string BookmakerSecond, PlayEvt BookmakerSecondEvent, string[] Rate, string[] Coefficient)
         {
+            this.VilkId = VilkId;
             this.TimeOfLife = TimeOfLife;
             this.Percent = Percent;
             this.BookmakerFirst = BookmakerFirst;
