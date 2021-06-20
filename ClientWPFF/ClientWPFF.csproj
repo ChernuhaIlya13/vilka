@@ -4,24 +4,24 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Background.jpg" />
     <None Remove="BetIcon.jpg" />
     <None Remove="BettingIcon.jpg" />
-    <None Remove="FootBallMainPage.png" />
-    <None Remove="SettingsIcon.png" />
     <None Remove="StartIcon.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Background.jpg" />
+    <Resource Include="assets\Background.jpg" />
+    <Resource Include="assets\BetIcon.jpg" />
+    <Resource Include="assets\BettingIcon.jpg" />
+    <Resource Include="assets\FootBallMainPage.png" />
+    <Resource Include="assets\SettingsIcon.png" />
+    <Resource Include="assets\StartIcon.png" />
     <Resource Include="BetIcon.jpg" />
-    <Resource Include="BettingIcon.jpg" />
-    <Resource Include="FootBallMainPage.png" />
-    <Resource Include="SettingsIcon.png" />
-    <Resource Include="StartIcon.png" />
   </ItemGroup>
 
 </Project>

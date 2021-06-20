@@ -20,16 +20,27 @@ namespace ClientWPFF
     /// </summary>
     public partial class MainWindow : Window
     {
+        public ToolTip tooltip { get; set; }
         public MainWindow()
         {
             InitializeComponent();
+            tooltip = new ToolTip();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainPage page = new MainPage();
-            page.Show();
-            Hide();
+            if (Login.Text == "admin" && Password.Password == "admin")
+            {
+                MainPage page = new MainPage();
+                page.Show();
+                Hide();
+            }
+            else 
+            {
+                Login.Background = Brushes.Aqua;
+                Password.Background = Brushes.Aqua;
+            }
+            
         }
     }
 }

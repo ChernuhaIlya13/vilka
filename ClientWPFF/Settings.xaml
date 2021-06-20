@@ -1,0 +1,27 @@
+﻿<Window x:Class="ClientWPFF.Settings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClientWPFF"
+        mc:Ignorable="d"
+        Title="Settings" Height="450" Width="800">
+    <Grid Background="#FFFFF4F2" >
+        <StackPanel Margin="0,0,0,397" Orientation="Horizontal" Panel.ZIndex="0" UseLayoutRounding="False">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFB990FF" Offset="0.03"/>
+                    <GradientStop Color="#FF1AE299" Offset="1"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <TextBlock TextWrapping="Wrap" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,0,0,0" FontWeight="Bold"><Run Language="ru-ru" Text="Общие настройки Бк"/></TextBlock>
+            <TextBlock TextWrapping="Wrap" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30,0,20,0" FontWeight="Bold"><Run Language="ru-ru" Text="Букмекеры"/></TextBlock>
+            <TextBlock TextWrapping="Wrap" Foreground="White" VerticalAlignment="Center" Margin="20,0,20,0" FontWeight="Bold"><Run Language="ru-ru" Text="Валюта"/></TextBlock>
+            <TextBlock TextWrapping="Wrap" Foreground="White" VerticalAlignment="Center" Margin="20,0,20,0" FontWeight="Bold"><Run Language="ru-ru" Text="Ограничения"/></TextBlock>
+            <TextBlock TextWrapping="Wrap" Foreground="White" VerticalAlignment="Center" Margin="20,0,20,0" FontWeight="Bold"><Run Language="ru-ru" Text="Оповещания"/></TextBlock>
+            <TextBlock TextWrapping="Wrap" TextAlignment="Right" Foreground="White" VerticalAlignment="Center" Margin="20,0,20,0" FontWeight="Bold"><Run Language="ru-ru" Text="Вилки и ставки"/></TextBlock>
+        </StackPanel>
+        <Frame Content="Frame" Name="SettingsFrame" Margin="0,37,0,0" NavigationUIVisibility="Hidden" Navigated="SettingsFrame_Navigated"/>
+
+    </Grid>
+</Window>

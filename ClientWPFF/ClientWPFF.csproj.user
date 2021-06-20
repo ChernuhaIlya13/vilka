@@ -7,7 +7,31 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Bookmakers.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CommonSettings.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Currency.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="MainPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MainPagee.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Notifications.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Restrictions.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Settings.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="VilksAndBets.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -15,7 +39,31 @@
     <Page Update="AuthPage.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Bookmakers.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CommonSettings.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Currency.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainPagee.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Notifications.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Restrictions.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Settings.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="VilksAndBets.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

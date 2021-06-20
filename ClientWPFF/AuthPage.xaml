@@ -26,9 +26,9 @@
             <RowDefinition ></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Image HorizontalAlignment="Left" Height="157" Margin="124,0,0,0" VerticalAlignment="Center" Width="164" Source="/BetIcon.jpg" OpacityMask="#FFE01B1B" Grid.ColumnSpan="3"/>
-        <TextBox   HorizontalAlignment="Left"  Padding="3" Margin="106,217,0,0" Text="Login" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" BorderThickness="1,1,1,1" Grid.RowSpan="2" Grid.ColumnSpan="3"/>
-        <PasswordBox   HorizontalAlignment="Left" Padding="3" Grid.Row="1" VerticalAlignment="Top" Width="188" Password="Password" Margin="106,51,0,0" Grid.ColumnSpan="3"/>
+        <Image HorizontalAlignment="Left" Height="157" Margin="124,0,0,0" VerticalAlignment="Center" Width="164" Source="assets/BetIcon.jpg" OpacityMask="#FFE01B1B" Grid.ColumnSpan="3"/>
+        <TextBox x:Name="Login"  HorizontalAlignment="Left"  Padding="3" Margin="106,217,0,0" Text="Login" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" BorderThickness="1,1,1,1" Grid.RowSpan="2" Grid.ColumnSpan="3"/>
+        <PasswordBox x:Name="Password"   HorizontalAlignment="Left" Padding="3" Grid.Row="1" VerticalAlignment="Top" Width="188" Password="Password" Margin="106,51,0,0" Grid.ColumnSpan="3"/>
         <CheckBox Content="Сохранить данные для входа" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Center" Width="190"  Background="#FFF3F3F3" Foreground="White" Grid.ColumnSpan="3" Margin="105,0,0,0"/>
         <Button  Content="Войти" HorizontalAlignment="Left" Padding="5" Margin="106,154,0,0" Grid.Row="1" VerticalAlignment="Top" Width="188"  Foreground="White" BorderBrush="#FF6C6666" FontWeight="Bold" FontStyle="Normal" Grid.ColumnSpan="3" Click="Button_Click">
             <Button.Background>

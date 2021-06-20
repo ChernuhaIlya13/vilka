@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClientWPFF"
         mc:Ignorable="d"
-        Title="MainPage" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Title="MainPage" Height="500" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -20,115 +20,25 @@
         </Grid.ColumnDefinitions>
         <Separator HorizontalAlignment="Left" Margin="127,137,0,0" VerticalAlignment="Top" Grid.Column="1"/>
         <Menu Height="40" VerticalAlignment="Top" Foreground="#FFD35B38" Background="#FF9D59EE" Grid.ColumnSpan="3">
-            <Image Height="37" Width="43" Source="/FootBallMainPage.png"/>
+            <Image Height="37" Width="43" Source="assets/FootBallMainPage.png" MouseDown="MainMenu_MouseDown"/>
             <TextBlock Text="Betting" TextWrapping="Wrap" Width="70" FontSize="18" Foreground="#FF700808"/>
-            <Image Height="44" Width="34" Source="/SettingsIcon.png" />
 
-            <Button Content="Запустить" Width="97" Padding="5" BorderThickness="0" Background="#FF7ABDE4" Foreground="White" FontWeight="Bold" Click="Button_Click" />
+                <Image Height="44" Width="34" Source="assets/SettingsIcon.png" MouseDown="Image_MouseDown"/>
+
+            <Button x:Name="LaunchButton" Content="Запустить" Width="97" Padding="5" BorderThickness="0" Background="#FF7ABDE4" Foreground="White" FontWeight="Bold" Click="LaunchButton_Click"  />
 
         </Menu>
-        <StackPanel Margin="409,0,0,410" Grid.Column="1" Panel.ZIndex="1000" Grid.ColumnSpan="2">
-            <TextBlock Text="Admin" TextWrapping="Wrap" Foreground="White" Height="15" Width="110" RenderTransformOrigin="0.5,0.5" >
-                <TextBlock.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleY="0.682"/>
-                        <RotateTransform/>
-                        <TranslateTransform Y="11.655"/>
-                    </TransformGroup>
-                </TextBlock.RenderTransform>
-            </TextBlock>
-        </StackPanel>
-        <ListBox Grid.Column="1" Margin="339,45,10,207" Grid.ColumnSpan="2">
-            <TextBlock Margin="115 0 0 0" TextWrapping="Wrap" Width="33" FontWeight="Bold" FontStyle="Italic" LineStackingStrategy="BlockLineHeight"><Run Language="ru-ru" Text="Логи"/></TextBlock>
-            <Border BorderThickness="1" BorderBrush="Black" Height="2" Width="246"/>
-        </ListBox>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="409,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="168" FontSize="20" Foreground="White" Text="Статистика"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="339,302,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Foreground="#FFFFF9F9" Text="Время работы"/>
-        <TextBlock x:Name="timeOfWork" Grid.Column="2" HorizontalAlignment="Left" Margin="79,302,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFFFFDFD"><Run Language="ru-ru" Text="0"/></TextBlock>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="338,323,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Foreground="#FFFFF9F9"><Run Language="ru-ru" Text="Вилок получено с сервера"/></TextBlock>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="339,344,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Foreground="#FFFFF9F9" Text="Отменено фильтрами"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="339,365,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Foreground="#FFFFF9F9" Text="Отменено повторных"/>
-        <TextBlock  Grid.Column="1" HorizontalAlignment="Left" Margin="339,386,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Foreground="#FFFFF9F9" Text="Было загружено"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="339,407,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Foreground="#FFFFF9F9" Text="Ставка пропала до загрузки"/>
-        <TextBlock x:Name="countOfVilks" Grid.Column="2" HorizontalAlignment="Left" Margin="79,323,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFFFFDFD"><Run Language="ru-ru" Text="0"/></TextBlock>
-        <TextBlock x:Name="canceledVilks" Grid.Column="2" HorizontalAlignment="Left" Margin="79,344,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFFFFDFD"><Run Language="ru-ru" Text="0"/></TextBlock>
-        <TextBlock x:Name="canceledRepeatVilks" Grid.Column="2" HorizontalAlignment="Left" Margin="79,365,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFFFFDFD"><Run Language="ru-ru" Text="0"/></TextBlock>
-        <TextBlock x:Name="hasBeenUploadVilks" Grid.Column="2" HorizontalAlignment="Left" Margin="79,386,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFFFFDFD"><Run Language="ru-ru" Text="0"/></TextBlock>
-        <TextBlock x:Name="vilksDisappeared" Grid.Column="2" HorizontalAlignment="Left" Margin="79,407,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFFFFDFD"><Run Language="ru-ru" Text="0"/></TextBlock>
-        <StackPanel Height="134" VerticalAlignment="Top" Margin="5,45,27,0" Background="White">
-            <TextBlock Text="Bet365" TextWrapping="Wrap" Width="44" RenderTransformOrigin="0.5,0.5" Margin="10 5 0 0">
-                <TextBlock.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="0.072"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </TextBlock.RenderTransform>
-            </TextBlock>
-            <TextBlock TextWrapping="Wrap" Width="52"><Run Language="ru-ru" Text="На паузе"/></TextBlock>
-            <TextBlock TextWrapping="Wrap" Width="120" Margin="-35 40 0 0"><Run Language="ru-ru" Text="Баланс:"/></TextBlock>
-            <TextBlock TextWrapping="Wrap" Width="120" Margin="-35 10 0 0"><Run Language="ru-ru" Text="Ставок:  "/></TextBlock>
-            <TextBlock Text="Сумма ставки:" TextWrapping="Wrap" Width="120" Margin="70 -42 0 0"/>
-            <TextBlock Text="Попыток:" TextWrapping="Wrap" Width="120" Margin="70 -16 0 0"/>
-            <TextBlock Text="0" TextWrapping="Wrap" Width="120" Margin="50 -41 0 0"/>
-            <TextBlock Text="0" TextWrapping="Wrap" Width="120" Margin="50 -16 0 0"/>
-            <TextBlock Text="0" TextWrapping="Wrap" Width="120" Margin="150 -40 0 0"/>
-            <TextBlock Text="0" TextWrapping="Wrap" Width="120" Margin="150 -16 0 0"/>
-        </StackPanel>
-        <StackPanel Height="134" VerticalAlignment="Top" Margin="167,45,369,0" Background="White" Grid.ColumnSpan="2">
-            <TextBlock Text="Bet365" TextWrapping="Wrap" Width="44" RenderTransformOrigin="0.5,0.5" Margin="10 5 0 0">
-                <TextBlock.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="0.072"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </TextBlock.RenderTransform>
-            </TextBlock>
-            <TextBlock TextWrapping="Wrap" Width="52"><Run Language="ru-ru" Text="На паузе"/></TextBlock>
-            <TextBlock TextWrapping="Wrap" Width="120" Margin="-35 40 0 0"><Run Language="ru-ru" Text="Баланс:"/></TextBlock>
-            <TextBlock TextWrapping="Wrap" Width="120" Margin="-35 10 0 0"><Run Language="ru-ru" Text="Ставок:  "/></TextBlock>
-            <TextBlock Text="Сумма ставки:" TextWrapping="Wrap" Width="120" Margin="70 -42 0 0"/>
-            <TextBlock Text="Попыток:" TextWrapping="Wrap" Width="120" Margin="70 -16 0 0"/>
-            <TextBlock Text="0" TextWrapping="Wrap" Width="120" Margin="50 -42 0 0"/>
-            <TextBlock Text="0" TextWrapping="Wrap" Width="120" Margin="50 -16 0 0"/>
-            <TextBlock Text="0" TextWrapping="Wrap" Width="120" Margin="150 -40 0 0"/>
-            <TextBlock Text="0" TextWrapping="Wrap" Width="120" Margin="150 -16 0 0"/>
-        </StackPanel>
-        <StackPanel Height="134" VerticalAlignment="Top" Margin="140,45,207,0" Background="White" Grid.Column="1">
-            <TextBlock Text="Bet365" TextWrapping="Wrap" Width="44" RenderTransformOrigin="0.5,0.5" Margin="10 5 0 0">
-                <TextBlock.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="0.072"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </TextBlock.RenderTransform>
-            </TextBlock>
-            <TextBlock TextWrapping="Wrap" Width="52"><Run Language="ru-ru" Text="На паузе"/></TextBlock>
-            <TextBlock TextWrapping="Wrap" Width="120" Margin="-35 40 0 0"><Run Language="ru-ru" Text="Баланс:"/></TextBlock>
-            <TextBlock TextWrapping="Wrap" Width="120" Margin="-35 10 0 0"><Run Language="ru-ru" Text="Ставок:  "/></TextBlock>
-            <TextBlock Text="Сумма ставки:" TextWrapping="Wrap" Width="120" Margin="70 -42 0 0"/>
-            <TextBlock Text="Попыток:" TextWrapping="Wrap" Width="120" Margin="70 -16 0 0"/>
-            <TextBlock Text="0" TextWrapping="Wrap" Width="120" Margin="50 -42 0 0"/>
-            <TextBlock Text="0" TextWrapping="Wrap" Width="120" Margin="50 -16 0 0"/>
-            <TextBlock Text="0" TextWrapping="Wrap" Width="120" Margin="150 -40 0 0"/>
-            <TextBlock Text="0" TextWrapping="Wrap" Width="120" Margin="150 -16 0 0"/>
-        </StackPanel>
-        <Rectangle Grid.Column="1" HorizontalAlignment="Left" Height="395" Margin="311,45,0,0" VerticalAlignment="Top" Width="7">
-            <Rectangle.Stroke>
-                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlDarkColorKey}}"/>
-            </Rectangle.Stroke>
-            <Rectangle.Fill>
-                <SolidColorBrush Color="#FFA0A0A0"/>
-            </Rectangle.Fill>
-        </Rectangle>
-        <TextBlock HorizontalAlignment="Left" Margin="102,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="339" FontSize="20" Grid.ColumnSpan="2" Foreground="#FFFBFBFB"><Run Language="ru-ru" Text="Информация о последней вилке"/></TextBlock>
-
+        <TextBlock Text="Admin" TextWrapping="Wrap" Foreground="White" Height="15" Width="110" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Grid.Column="1" Margin="463,-11,38,446" >
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.682"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="11.655"/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <Frame Name="MainFrame" NavigationUIVisibility="Hidden" Grid.ColumnSpan="3" Margin="0,40,0,0" Navigated="MainFrame_Navigated"/>
 
     </Grid>
 </Window>
