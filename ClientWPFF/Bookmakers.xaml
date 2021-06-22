@@ -8,7 +8,23 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Bookmakers">
 
-    <Grid>
-        
+    <Grid Background="#FFD7E2FF">
+        <Border BorderBrush="Black" Background="#FF999999" BorderThickness="1" Margin="10,10,681,396">
+            <StackPanel  RenderTransformOrigin="0.598,0.512" HorizontalAlignment="Left" >
+                <Rectangle Height="41" Stroke="Aqua" Fill="Green" Width="80"/>
+            </StackPanel>
+        </Border>
+        <Image HorizontalAlignment="Left" Height="45" Margin="138,9,0,0" VerticalAlignment="Top" Width="68" Source="/PinnacleIcon.png"/>
+        <Border BorderBrush="Black" Background="#FF999999" BorderThickness="1" Margin="10,84,681,322">
+            <StackPanel  RenderTransformOrigin="0.598,0.512" HorizontalAlignment="Left" >
+                <Rectangle Height="41" Stroke="Aqua" Fill="Green" Width="80"/>
+            </StackPanel>
+        </Border>
+        <Image HorizontalAlignment="Left" Height="32" Margin="140,90,0,0" VerticalAlignment="Top" Width="68" Source="/Bet365.png"/>
+        <TextBlock HorizontalAlignment="Left" Margin="274,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="ru-ru" Text="Основные"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="355,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Браузер"/>
+        <Rectangle HorizontalAlignment="Left" Height="1" Margin="274,40,0,0" Stroke="Black" VerticalAlignment="Top" Width="509"/>
+        <Frame Name="BookmakersFrame" Content="Frame" Margin="274,57,17,197" NavigationUIVisibility="Hidden"/>
     </Grid>
+
 </Page>

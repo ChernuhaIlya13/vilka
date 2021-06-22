@@ -14,12 +14,12 @@
                     <GradientStop Color="#FF1AE299" Offset="1"/>
                 </LinearGradientBrush>
             </StackPanel.Background>
-            <TextBlock TextWrapping="Wrap" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,0,0,0" FontWeight="Bold"><Run Language="ru-ru" Text="Общие настройки Бк"/></TextBlock>
-            <TextBlock TextWrapping="Wrap" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30,0,20,0" FontWeight="Bold"><Run Language="ru-ru" Text="Букмекеры"/></TextBlock>
-            <TextBlock TextWrapping="Wrap" Foreground="White" VerticalAlignment="Center" Margin="20,0,20,0" FontWeight="Bold"><Run Language="ru-ru" Text="Валюта"/></TextBlock>
-            <TextBlock TextWrapping="Wrap" Foreground="White" VerticalAlignment="Center" Margin="20,0,20,0" FontWeight="Bold"><Run Language="ru-ru" Text="Ограничения"/></TextBlock>
-            <TextBlock TextWrapping="Wrap" Foreground="White" VerticalAlignment="Center" Margin="20,0,20,0" FontWeight="Bold"><Run Language="ru-ru" Text="Оповещания"/></TextBlock>
-            <TextBlock TextWrapping="Wrap" TextAlignment="Right" Foreground="White" VerticalAlignment="Center" Margin="20,0,20,0" FontWeight="Bold"><Run Language="ru-ru" Text="Вилки и ставки"/></TextBlock>
+            <TextBlock TextWrapping="Wrap" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,0,0,0" FontWeight="Bold"><Run Language="ru-ru" Text="Общие настройки Бк" MouseDown="onClickCommonSettings"/></TextBlock>
+            <TextBlock TextWrapping="Wrap" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30,0,20,0" FontWeight="Bold"><Run Language="ru-ru" Text="Букмекеры" MouseDown="onClickBookmakers"/></TextBlock>
+            <TextBlock TextWrapping="Wrap" Foreground="White" VerticalAlignment="Center" Margin="20,0,20,0" FontWeight="Bold"><Run Language="ru-ru" Text="Валюта" MouseDown="onClickCurrency"/></TextBlock>
+            <TextBlock TextWrapping="Wrap" Foreground="White" VerticalAlignment="Center" Margin="20,0,20,0" FontWeight="Bold"><Run Language="ru-ru" Text="Ограничения" MouseDown="onClickRestrictions"/></TextBlock>
+            <TextBlock TextWrapping="Wrap" Foreground="White" VerticalAlignment="Center" Margin="20,0,20,0" FontWeight="Bold"><Run Language="ru-ru" Text="Оповещания" MouseDown="onClickNotification"/></TextBlock>
+            <TextBlock TextWrapping="Wrap" TextAlignment="Right" Foreground="White" VerticalAlignment="Center" Margin="20,0,20,0" FontWeight="Bold"><Run Language="ru-ru" Text="Вилки и ставки" MouseDown="onClickVilksAndBets"/></TextBlock>
         </StackPanel>
         <Frame Content="Frame" Name="SettingsFrame" Margin="0,37,0,0" NavigationUIVisibility="Hidden" Navigated="SettingsFrame_Navigated"/>
 

@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Users\gh\Desktop\MainVilka\vilka\ClientWPFF\App.xaml
-101107623871
+141656889989
 
-12108245093
+16-7622903
 2021211560773
-AuthPage.xaml;Bookmakers.xaml;CommonSettings.xaml;Currency.xaml;MainPage.xaml;MainPagee.xaml;Notifications.xaml;Restrictions.xaml;Settings.xaml;VilksAndBets.xaml;
+AuthPage.xaml;Bet365Settings.xaml;Bookmakers.xaml;CommonSettings.xaml;Currency.xaml;MainPage.xaml;MainPagee.xaml;Notifications.xaml;PinnacleBrowserSettings.xaml;PinnacleMainSettings.xaml;PinnacleSettings.xaml;Restrictions.xaml;Settings.xaml;VilksAndBets.xaml;
 
-False
+True
 

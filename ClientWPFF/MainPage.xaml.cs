@@ -94,7 +94,9 @@ namespace ClientWPFF
 
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MainFrame.Content = new CommonSettings();
+            Settings settings = new Settings();
+            settings.Show();
+            Hide();
         }
         private void MainMenu_MouseDown(object sender, MouseButtonEventArgs e)
         {

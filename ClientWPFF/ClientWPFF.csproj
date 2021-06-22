@@ -9,8 +9,10 @@
 
   <ItemGroup>
     <None Remove="Background.jpg" />
+    <None Remove="Bet365.png" />
     <None Remove="BetIcon.jpg" />
     <None Remove="BettingIcon.jpg" />
+    <None Remove="PinnacleIcon.png" />
     <None Remove="StartIcon.png" />
   </ItemGroup>
 
@@ -21,7 +23,9 @@
     <Resource Include="assets\FootBallMainPage.png" />
     <Resource Include="assets\SettingsIcon.png" />
     <Resource Include="assets\StartIcon.png" />
+    <Resource Include="Bet365.png" />
     <Resource Include="BetIcon.jpg" />
+    <Resource Include="PinnacleIcon.png" />
   </ItemGroup>
 
 </Project>

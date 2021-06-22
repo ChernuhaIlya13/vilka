@@ -8,7 +8,116 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Restrictions">
 
-    <Grid>
+
+    <Grid Background="#FF99B1F1" Height="450" Width="800">
+        <TextBlock HorizontalAlignment="Left" Margin="304,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="258" FontSize="20" FontWeight="Bold" RenderTransformOrigin="0.5,0.5">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.114"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform><Run Language="ru-ru" Text="Временные ограничения"/></TextBlock>
+        <StackPanel Margin="21,43,327,368">
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="ru-ru" Text="Футбол"/></TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="Не делать ставки ,когда до окончания тайма осталось меньше,мин" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+                <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" >
+                    <StackPanel  HorizontalAlignment="Left" VerticalAlignment="Top" Width="52"  Orientation="Horizontal" >
+                        <TextBlock Margin="5 0 5 0"><Run Text="0"/></TextBlock>
+                        <TextBlock Margin="5 0 5 0"><Run Text="+"/></TextBlock>
+                        <TextBlock Margin="5 0 5 0"><Run Text="-"/></TextBlock>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Margin="21,87,327,324">
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="ru-ru" Text="Хоккей"/></TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="Не делать ставки ,когда до окончания тайма осталось меньше,мин" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+                <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" >
+                    <StackPanel  HorizontalAlignment="Left" VerticalAlignment="Top" Width="52"  Orientation="Horizontal" >
+                        <TextBlock Margin="5 0 5 0"><Run Text="0"/></TextBlock>
+                        <TextBlock Margin="5 0 5 0"><Run Text="+"/></TextBlock>
+                        <TextBlock Margin="5 0 5 0"><Run Text="-"/></TextBlock>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Margin="21,131,327,280">
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="ru-ru" Text="Баскетбол"/></TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="Не делать ставки ,когда до окончания тайма осталось меньше,мин" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+                <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" >
+                    <StackPanel  HorizontalAlignment="Left" VerticalAlignment="Top" Width="52"  Orientation="Horizontal" >
+                        <TextBlock Margin="5 0 5 0"><Run Text="0"/></TextBlock>
+                        <TextBlock Margin="5 0 5 0"><Run Text="+"/></TextBlock>
+                        <TextBlock Margin="5 0 5 0"><Run Text="-"/></TextBlock>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Margin="21,175,327,236">
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="ru-ru" Text="Волейбол"/></TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="Не делать ставки ,когда до окончания тайма осталось меньше,мин" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+                <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" >
+                    <StackPanel  HorizontalAlignment="Left" VerticalAlignment="Top" Width="52"  Orientation="Horizontal" >
+                        <TextBlock Margin="5 0 5 0"><Run Text="0"/></TextBlock>
+                        <TextBlock Margin="5 0 5 0"><Run Text="+"/></TextBlock>
+                        <TextBlock Margin="5 0 5 0"><Run Text="-"/></TextBlock>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+        <TextBlock HorizontalAlignment="Left" Margin="45,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"><Run Text="Правила и иск"/><Run Language="ru-ru" Text="л"/><Run Text="ючения"/></TextBlock>
+        <Button Content="Новое исключение" BorderThickness="0" HorizontalAlignment="Left" Margin="268,224,0,0" VerticalAlignment="Top" Background="#FF1F45F0"/>
+        <Button Content="Новое правило" BorderThickness="0" HorizontalAlignment="Left" Margin="412,224,0,0" VerticalAlignment="Top" Background="#FF1F45F0" Height="19"/>
+
+        <Grid Margin="0,270,301,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="0">
+            <TextBlock   HorizontalAlignment="Center">Название</TextBlock>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="1">
+                <TextBlock   HorizontalAlignment="Center">Связка</TextBlock>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="2">
+                <TextBlock   HorizontalAlignment="Center">Тип</TextBlock>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="3">
+                <TextBlock   HorizontalAlignment="Center">Редактировать</TextBlock>
+            </Border>
+
+        </Grid> 
+        
+        
+        <TextBlock HorizontalAlignment="Left" Margin="658,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="ru-ru" Text="Другие"/></TextBlock>
+        <Rectangle HorizontalAlignment="Left" Height="397" Margin="525,43,0,0" Stroke="Black" VerticalAlignment="Top" Width="3" Fill="#FF464141"/>
+        <TextBlock HorizontalAlignment="Left" Margin="548,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Останавливать бот после неперекрытых "/><LineBreak/><Run Language="ru-ru" Text=" подряд"/></TextBlock>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Margin="624,77,0,0" VerticalAlignment="Top" >
+            <StackPanel  HorizontalAlignment="Left" VerticalAlignment="Top" Width="52"  Orientation="Horizontal" >
+                <TextBlock Margin="5 0 5 0"><Run Text="5"/></TextBlock>
+                <TextBlock Margin="5 0 5 0"><Run Text="+"/></TextBlock>
+                <TextBlock Margin="5 0 5 0"><Run Text="-"/></TextBlock>
+            </StackPanel>
+        </Border>
         
     </Grid>
 </Page>

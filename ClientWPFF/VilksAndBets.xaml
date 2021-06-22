@@ -8,7 +8,50 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="VilksAndBets">
 
-    <Grid>
-        
+    <Grid Background="#FFD9D0FF">
+        <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="34,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"><Run Language="ru-ru" Text="Футбол"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="35,68,0,0" Text="Победа" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16"/>
+        <Border BorderBrush="Black" Background="#FF999999" BorderThickness="1" Margin="35,110,677,311">
+            <StackPanel  RenderTransformOrigin="0.598,0.512" HorizontalAlignment="Left" >
+                <Rectangle Height="27" Stroke="Aqua" Fill="Green" Width="64"/>
+            </StackPanel>
+        </Border>
+        <TextBlock HorizontalAlignment="Left" Margin="178,68,0,0" Text="Тоталы" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Border BorderBrush="Black" Background="#FF999999" BorderThickness="1" Margin="176,110,536,311">
+            <StackPanel  RenderTransformOrigin="0.598,0.512" HorizontalAlignment="Left" >
+                <Rectangle Height="27" Stroke="Aqua" Fill="Green" Width="64"/>
+            </StackPanel>
+        </Border>
+        <TextBlock HorizontalAlignment="Left" Margin="305,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16"><Run Language="ru-ru" Text="Инд.тоталы"/></TextBlock>
+        <Border BorderBrush="Black" Background="#FF999999" BorderThickness="1" Margin="305,110,407,311">
+            <StackPanel  RenderTransformOrigin="0.598,0.512" HorizontalAlignment="Left" >
+                <Rectangle Height="27" Stroke="Aqua" Fill="Green" Width="64"/>
+            </StackPanel>
+        </Border>
+        <TextBlock HorizontalAlignment="Left" Margin="439,68,0,0" Text="Форы" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16"/>
+        <Border BorderBrush="Black" Background="#FF999999" BorderThickness="1" Margin="439,110,273,311">
+            <StackPanel  RenderTransformOrigin="0.598,0.512" HorizontalAlignment="Left" >
+                <Rectangle Height="27" Stroke="Aqua" Fill="Green" Width="64"/>
+            </StackPanel>
+        </Border>
+        <TextBlock HorizontalAlignment="Left" Margin="559,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16"><Run Language="ru-ru" Text="Статистика"/></TextBlock>
+        <Border BorderBrush="Black" Background="#FF999999" BorderThickness="1" Margin="559,110,153,311">
+            <StackPanel  RenderTransformOrigin="0.598,0.512" HorizontalAlignment="Left" >
+                <Rectangle Height="27" Stroke="Aqua" Fill="Green" Width="64"/>
+            </StackPanel>
+        </Border>
+        <TextBlock HorizontalAlignment="Left" Margin="695,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16"><Run Language="ru-ru" Text="Доп-но"/></TextBlock>
+        <Border BorderBrush="Black" Background="#FF999999" BorderThickness="1" Margin="695,110,17,311">
+            <StackPanel  RenderTransformOrigin="0.598,0.512" HorizontalAlignment="Left" >
+                <Rectangle Height="27" Stroke="Aqua" Fill="Green" Width="64"/>
+            </StackPanel>
+        </Border>
+        <Border BorderBrush="Black" Background="#FF999999" BorderThickness="1" Margin="132,19,580,402">
+            <StackPanel  RenderTransformOrigin="0.598,0.512" HorizontalAlignment="Left" >
+                <Rectangle Height="27" Stroke="Aqua" Fill="Green" Width="64"/>
+            </StackPanel>
+        </Border>
+        </Grid>
     </Grid>
 </Page>

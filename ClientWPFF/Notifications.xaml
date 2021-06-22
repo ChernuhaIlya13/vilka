@@ -8,7 +8,19 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Notifications">
 
-    <Grid>
-        
+    <Grid Background="#FF96EBF3">
+        <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" Text="Telegram" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
+        <CheckBox  Content="Отсылать уведомления в телеграм" HorizontalAlignment="Left" Margin="64,63,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked"/>
+        <TextBlock HorizontalAlignment="Left" Margin="64,92,0,0" Text="Для получения уведомлений в телеграм скопируйте Ваш ключ доступа в наш бот" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <StackPanel Orientation="Horizontal" Margin="64,133,-64,-133" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBlock HorizontalAlignment="Left"  Text="Ваш ключ доступа" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBox HorizontalAlignment="Left" Margin="10 0 10 0" Text="ключ" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+            <Button Content="Копировать" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="64,158,0,0">
+            <TextBlock HorizontalAlignment="Left"  Text="Бот:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBox HorizontalAlignment="Left" Margin="90,0,10,0" Text="Бот информер ключ" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+            <Button Content="Копировать" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+        </StackPanel>
     </Grid>
 </Page>

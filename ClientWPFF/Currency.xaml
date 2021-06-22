@@ -8,7 +8,68 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Currency">
 
-    <Grid>
-        
+    <Grid Background="#FFB7DCF5">
+        <TextBlock HorizontalAlignment="Left" Margin="291,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="276" RenderTransformOrigin="0.5,0.5" FontSize="20" FontWeight="Bold" FontStyle="Normal" TextDecorations="Underline">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-1.469"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-0.308"/>
+                </TransformGroup>
+            </TextBlock.RenderTransform><Run Text="Курсы валют"/><Run Language="ru-ru" Text=" и округления"/><Run Text=" "/></TextBlock>
+        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" VerticalAlignment="Top" Margin="64,67,0,0">
+            <TextBlock TextWrapping="Wrap" Width="101"><Run Language="ru-ru" Text="Рубль"/></TextBlock>
+            <ComboBox Width="120" >
+                <TextBlock>0.01</TextBlock>
+                <TextBlock>0.01</TextBlock>
+                <TextBlock>0.01</TextBlock>
+            </ComboBox>
+            <TextBox Text="1" TextWrapping="Wrap" Width="120" Height="22" TextChanged="TextBox_TextChanged"/>
+
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" VerticalAlignment="Top" Margin="64,94,0,0">
+            <TextBlock TextWrapping="Wrap" Width="101"><Run Language="ru-ru" Text="Доллар"/></TextBlock>
+            <ComboBox Width="120">
+                <TextBlock>0.01</TextBlock>
+                <TextBlock>0.01</TextBlock>
+                <TextBlock>0.01</TextBlock>
+            </ComboBox>
+            <TextBox Text="1" TextWrapping="Wrap" Width="120" Height="22" TextChanged="TextBox_TextChanged"/>
+
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" VerticalAlignment="Top" Margin="64,121,0,0">
+            <TextBlock TextWrapping="Wrap" Width="101"><Run Language="ru-ru" Text="Евро"/></TextBlock>
+            <ComboBox Width="120">
+                <TextBlock>0.01</TextBlock>
+                <TextBlock>0.01</TextBlock>
+                <TextBlock>0.01</TextBlock>
+            </ComboBox>
+            <TextBox Text="1" TextWrapping="Wrap" Width="120" Height="22" TextChanged="TextBox_TextChanged"/>
+
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" VerticalAlignment="Top" Margin="64,148,0,0">
+            <TextBlock TextWrapping="Wrap" Width="101"><Run Language="ru-ru" Text="Гривна"/></TextBlock>
+            <ComboBox Width="120">
+                <TextBlock>0.01</TextBlock>
+                <TextBlock>0.01</TextBlock>
+                <TextBlock>0.01</TextBlock>
+            </ComboBox>
+            <TextBox Text="1" TextWrapping="Wrap" Width="120" Height="22" TextChanged="TextBox_TextChanged"/>
+
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" VerticalAlignment="Top" Margin="64,175,0,0">
+            <TextBlock TextWrapping="Wrap"><Run Language="ru-ru" Text="Польский золотой"/></TextBlock>
+            <ComboBox Width="120"/>
+            <TextBox Text="1" TextWrapping="Wrap" Width="120" Height="22" TextChanged="TextBox_TextChanged"/>
+
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" VerticalAlignment="Top" Margin="64,202,0,0">
+            <TextBlock TextWrapping="Wrap" Width="101"><Run Language="ru-ru" Text="Тенге"/></TextBlock>
+            <ComboBox Width="120"/>
+            <TextBox Text="1" TextWrapping="Wrap" Width="120" Height="22" TextChanged="TextBox_TextChanged"/>
+
+        </StackPanel>
+
     </Grid>
 </Page>

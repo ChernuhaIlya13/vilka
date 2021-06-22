@@ -158,15 +158,15 @@ namespace Server
         public static  void Main(string[] args)
         {
             //Подключается к базе данных и забирает выводит все вилки
-             ConnectToDatabase();
-            //JsonParser();
-            /*while (true) {
-                //Thread.Sleep(30000);
+            // ConnectToDatabase();
+            JsonParser();
+            while (true) {
+                Thread.Sleep(15000);
                 Console.Clear();
                 JsonParser();
-            }*/
-            Thread.Sleep(10000);
-            #region Server
+            }
+            //Thread.Sleep(10000);
+            /*#region Server
             IPHostEntry ipHost = Dns.GetHostEntry("localhost");
             IPAddress ipAddr = ipHost.AddressList[0];
             IPEndPoint ipEndPoint = new IPEndPoint(ipAddr, 11000);
@@ -226,6 +226,7 @@ namespace Server
                 Console.ReadLine();
             }
             #endregion
+            */
         }
 
     }

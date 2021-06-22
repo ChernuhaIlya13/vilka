@@ -24,5 +24,15 @@ namespace ClientWPFF
         {
             InitializeComponent();
         }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CheckBox_Checked_1(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

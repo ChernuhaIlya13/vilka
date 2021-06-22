@@ -25,9 +25,42 @@ namespace ClientWPFF
             SettingsFrame.Content = new CommonSettings();
         }
 
+        
         private void SettingsFrame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
         {
 
         }
+
+        private void onClickCommonSettings(object sender, MouseButtonEventArgs e)
+        {
+            SettingsFrame.Content = new CommonSettings();
+        }
+        private void onClickBookmakers(object sender, MouseButtonEventArgs e)
+        {
+            SettingsFrame.Content = new Bookmakers();
+        }
+
+
+        private void onClickCurrency(object sender, MouseButtonEventArgs e)
+        {
+            SettingsFrame.Content = new Currency();
+        }
+
+        private void onClickRestrictions(object sender, MouseButtonEventArgs e)
+        {
+            SettingsFrame.Content = new Restrictions();
+        }
+
+        private void onClickNotification(object sender, MouseButtonEventArgs e)
+        {
+            SettingsFrame.Content = new Notifications();
+        }
+
+        private void onClickVilksAndBets(object sender, MouseButtonEventArgs e)
+        {
+            SettingsFrame.Content = new VilksAndBets();
+        }
+
+ 
     }
 }
